@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    {% for item in page.gallery_images.all %}
+        <div style="float: left; margin: 10px; margin-left: 50px;">
+            {% image item.image fill-150x150 %}
+        </div>
+    {% endfor %}
+
+    <div style="margin-left: 50px;"><p>{{ page.body|richtext }}</p></div>
+{% endblock %}
